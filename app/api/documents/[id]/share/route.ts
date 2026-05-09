@@ -55,7 +55,7 @@ export async function POST(
       // Auto-create user account for the email
       // Generate a name from email (e.g., "john.doe@example.com" → "John Doe")
       const emailUsername = normalizedEmail.split('@')[0];
-      const nameParts = emailUsername.split(/[._-]/).map(part =>
+      const nameParts = emailUsername.split(/[._-]/).map((part: string) =>
         part.charAt(0).toUpperCase() + part.slice(1)
       );
       const generatedName = nameParts.join(' ');
