@@ -26,7 +26,7 @@ export async function POST(
     // Check write access
     const hasAccess =
       document.ownerId === user.id ||
-      document.shares.some((share) => share.userId === user.id);
+      document.shares.some((share: any) => share.userId === user.id);
 
     if (!hasAccess) {
       return NextResponse.json({ error: 'Access denied' }, { status: 403 });
