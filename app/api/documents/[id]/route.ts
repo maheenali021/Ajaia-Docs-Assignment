@@ -42,7 +42,7 @@ export async function GET(
     // Check access: must be owner or have share access
     const hasAccess =
       document.ownerId === user.id ||
-      document.shares.some((share) => share.userId === user.id);
+      document.shares.some((share: any) => share.userId === user.id);
 
     if (!hasAccess) {
       return NextResponse.json({ error: 'Access denied' }, { status: 403 });
@@ -79,7 +79,7 @@ export async function PATCH(
     // Check write access: must be owner or have share access
     const hasAccess =
       document.ownerId === user.id ||
-      document.shares.some((share) => share.userId === user.id);
+      document.shares.some((share: any) => share.userId === user.id);
 
     if (!hasAccess) {
       return NextResponse.json({ error: 'Access denied' }, { status: 403 });
